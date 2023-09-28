@@ -11,7 +11,7 @@ export default function Sidebar({ expanded, setExpanded }) {
   return (
     <div
       className={`${
-        expanded ? "w-auto p-6" : "w-16 p-2"
+        expanded ? "w-auto p-6" : "md:w-20 w-16 p-2"
       } bg-gray-100 rounded-xl sidebar h-full flex flex-col relative transition-all	`}
     >
       <div
