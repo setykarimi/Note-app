@@ -2,10 +2,11 @@ import React from "react";
 import { BiMenu } from "react-icons/bi";
 import SearchBar from "./components/searchBar";
 import Tasks from "./components/tasks";
+import Lists from "./components/lists";
 
 export default function Sidebar() {
   return (
-    <div className="bg-gray-100 p-4 rounded-xl">
+    <div className="bg-gray-100 p-6 rounded-xl">
       <div className="title flex justify-between items-center">
         <span className="font-bold text-2xl text-gray-600">Menu</span>
         <button>
@@ -14,6 +15,7 @@ export default function Sidebar() {
       </div>
       <SearchBar />
       <Tasks />
+      <Lists />
     </div>
   );
 }
