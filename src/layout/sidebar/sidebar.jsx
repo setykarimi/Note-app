@@ -1,25 +1,53 @@
 import React from "react";
 import { BiMenu } from "react-icons/bi";
-import SearchBar from "./components/searchBar";
-import Tasks from "./components/tasks";
+import { FaChevronRight } from "react-icons/fa";
 import Lists from "./components/lists";
-import Tags from "./components/tags";
 import OtherLinks from "./components/otherlinks";
+import SearchBar from "./components/searchBar";
+import Tags from "./components/tags";
+import Tasks from "./components/tasks";
 
-export default function Sidebar() {
+export default function Sidebar({ expanded, setExpanded }) {
   return (
-    <div className="bg-gray-100 p-6 rounded-xl sidebar h-full flex flex-col">
-      <div className="title flex justify-between items-center">
-        <span className="font-bold text-2xl text-gray-600">Menu</span>
-        <button>
-          <BiMenu size={25} className="text-gray-600" />
+    <div
+      className={`${
+        expanded ? "w-auto p-6" : "w-16 p-2"
+      } bg-gray-100 rounded-xl sidebar h-full flex flex-col relative transition-all	`}
+    >
+      <div
+        className={`title flex ${
+          expanded ? "justify-between" : "justify-center"
+        } items-center`}
+      >
+        <span
+          className={`font-bold block ${
+            expanded ? "text-2xl" : "text-sm mt-2 "
+          } text-gray-600 `}
+        >
+          Menu
+        </span>
+
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className={`transition-all ${
+            !expanded ? "absolute -right-2 top-8" : ""
+          }`}
+        >
+          {expanded ? (
+            <BiMenu size={25} className="text-gray-600" />
+          ) : (
+            <span className="bg-cyan-500 rounded-full w-5 h-5 flex items-center justify-center ">
+              {" "}
+              <FaChevronRight size={11} className="text-white" />
+            </span>
+          )}
         </button>
       </div>
-      <SearchBar />
-      <Tasks />
-      <Lists />
-      <Tags />
-      <OtherLinks />
+      {expanded && <SearchBar />}
+      <Tasks expanded={expanded} />
+      <Lists expanded={expanded} />
+      <Tags expanded={expanded} />
+      <OtherLinks expanded={expanded} />
     </div>
   );
 }
