@@ -1,11 +1,10 @@
 import React from "react";
 import {
-  BiCalendar,
   BiChevronsRight,
   BiListCheck,
-  BiSolidNote,
+  BiSolidNote
 } from "react-icons/bi";
-import {FaCalendarAlt} from 'react-icons/fa'
+import { FaCalendarAlt } from 'react-icons/fa';
 import { Link, useLocation } from "react-router-dom";
 
 export default function Tasks() {
@@ -36,7 +35,7 @@ export default function Tasks() {
   ];
 
   return (
-    <div className="mt-8">
+    <div className="mt-8 border-b border-b-gray-200 pb-4">
       <span className="text-xs text-gray-600 font-bold">TASKS</span>
       <div className="flex flex-col  mt-2">
         {links.map((link) => (
