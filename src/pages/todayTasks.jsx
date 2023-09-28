@@ -1,7 +1,10 @@
 import React from 'react'
+import TaskList from '../components/tasks/taskList'
 
 export default function TodayTask() {
   return (
-    <div>TodayTask</div>
+    <>
+    <TaskList />
+    </>
   )
 }
