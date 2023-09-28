@@ -11,6 +11,10 @@ export const router = createBrowserRouter([
         path: '/',
         element: <TodayTask />,
       },
+      {
+        path: '*',
+        element: < >Not found</>,
+      },
     ],
   },
 ]);
