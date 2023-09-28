@@ -3,6 +3,7 @@ import { BiMenu } from "react-icons/bi";
 import SearchBar from "./components/searchBar";
 import Tasks from "./components/tasks";
 import Lists from "./components/lists";
+import Tags from "./components/tags";
 
 export default function Sidebar() {
   return (
@@ -16,6 +17,7 @@ export default function Sidebar() {
       <SearchBar />
       <Tasks />
       <Lists />
+      <Tags />
     </div>
   );
 }
