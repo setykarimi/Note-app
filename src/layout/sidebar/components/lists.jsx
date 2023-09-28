@@ -16,7 +16,7 @@ export default function Lists() {
       name: "Word",
       color: "bg-cyan-400",
       badge: 6,
-      to: "/",
+      to: "",
     },
     {
       name: "List 1",
