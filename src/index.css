@@ -2,7 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-body,
-html {
-  direction: rtl;
+@font-face {
+  font-family: 'Heebo-regular';
+  src: url(./assets/fonts/Heebo-Regular.ttf);
+}
+@font-face {
+  font-family: 'Heebo-bold';
+  src: url(./assets/fonts/Heebo-Bold.ttf);
+}
+@font-face {
+  font-family: 'Heebo-medium';
+  src: url(./assets/fonts/Heebo-Medium.ttf);
+}
+@font-face {
+  font-family: 'Heebo-semibold';
+  src: url(./assets/fonts/Heebo-SemiBold.ttf);
+}
+
+body,html{
+  font-family: 'Heebo-regular';
+  background: #FAFAFA;
+  letter-spacing: .04em;
+}
+
+
+.font-bold{
+  font-family: 'Heebo-bold';
+}
+.font-medium{
+  font-family: 'Heebo-medium';
+}
+.font-semibold{
+  font-family: 'Heebo-semibold';
 }
