@@ -26,7 +26,7 @@ export default function Lists() {
     },
   ];
   return (
-    <div className="mt-8 border-b border-b-gray-200 pb-4">
+    <div className="mt-4 border-b border-b-gray-200 pb-4">
       <span className="text-xs text-gray-600 font-bold">LISTS</span>
       <div className="flex flex-col  mt-2">
         {lists.map((list) => (
