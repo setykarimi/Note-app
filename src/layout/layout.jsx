@@ -5,8 +5,6 @@ import { Outlet } from "react-router-dom";
 export default function Layout() {
   const mobileView =  window.innerWidth < 1025
   const [expanded, setExpanded] = useState(!mobileView);
-  console.log(window.innerWidth);
-  console.log(mobileView);
   return (
     <div
       className={`xl:container mx-auto  ${
