@@ -25,7 +25,6 @@ body,html{
   letter-spacing: .04em;
 }
 
-
 .font-bold{
   font-family: 'Heebo-bold';
 }
@@ -34,4 +33,11 @@ body,html{
 }
 .font-semibold{
   font-family: 'Heebo-semibold';
+}
+
+
+@media(min-height: 780px){
+  .sidebar{
+  height: 95vh;
+}
 }
