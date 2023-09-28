@@ -1,15 +1,22 @@
-import NoteList from "./components/noteList";
-import Sidebar from "./components/sidebar";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "./layout/layout";
+import TodayTask from "./pages/todayTasks";
+
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <TodayTask />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  return (
-    <div className="container p-4 mx-auto grid grid-cols-4">
-      <Sidebar />
-      <div className="col-span-3">
-      <NoteList />
-      </div>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
