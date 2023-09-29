@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { IoMdAdd } from "react-icons/io";
-import { BiSolidCalendarX } from "react-icons/bi";
-import { HiChevronRight } from "react-icons/hi";
+import Task from "./task";
+import TaskForm from "./taskForm";
 
 export default function TaskList() {
+  const [showTaskForm, setShowTaskForm] = useState(false)
   const tasksList = [
     {
       id: 1,
@@ -38,57 +39,27 @@ export default function TaskList() {
 
   const [tasks, setTasks] = useState(tasksList);
 
-  return (
-    <>
-      <button className="border border-gray-150 px-6 py-4 text-gray-400 rounded-lg w-full text-left flex items-center gap-2">
-        <IoMdAdd className="text-gray-400" size={22} />
-        Add New Task
-      </button>
-      <div className="mt-4">
-        {tasks.map((task) => (
-          <Task key={task.id} task={task} />
-        ))}
-      </div>
-    </>
-  );
-}
-
-const Task = ({ task }) => {
-  const showTaskDetails = (task) => {
-    console.log(task);
+  const addNewNoteHandler = () => {
+    setShowTaskForm(true)
   };
-  return (
-    <div
-      className="p-4 cursor-pointer text-gray-600 border-b border-b-gray-150 flex justify-between items-center"
-      onClick={() => showTaskDetails(task)}
-    >
-      <div>
-        <div className="flex items-center gap-2">
-          <input type="checkbox" className="w-4 h-4 border border-gray-100" />
-          <span>{task.title}</span>
-        </div>
-        {(task.date || task.label) && (
-          <div className="flex items-center flex-wrap gap-6 mt-2 ml-6">
-            {task.date && (
-              <div className="flex items-center text-gray-600 gap-1">
-                <BiSolidCalendarX size={14} />
-                <span className="text-xs  font-bold">{task.date}</span>
-              </div>
-            )}
 
-            {task.label && (
-              <div className="flex items-center text-gray-600 gap-2 text-xs font-bold">
-                <span
-                  className={`${task.label.color} w-3 h-3`}
-                  style={{ borderRadius: "2px" }}
-                ></span>
-                {task.label.title}
-              </div>
-            )}
-          </div>
-        )}
+  return (
+    <div className="grid grid-cols-3 gap-6">
+      <div className={showTaskForm ? 'col-span-2' : 'col-span-3'}>
+        <button
+          className="border border-gray-150 px-6 py-4 text-gray-400 rounded-lg w-full text-left flex items-center gap-2"
+          onClick={addNewNoteHandler}
+        >
+          <IoMdAdd className="text-gray-400" size={22} />
+          Add New Task
+        </button>
+        <div className="mt-4">
+          {tasks.map((task) => (
+            <Task key={task.id} task={task} />
+          ))}
+        </div>
       </div>
-      <HiChevronRight size={22} />
+      {showTaskForm && <TaskForm setTasks={setTasks} setShowTaskForm={setShowTaskForm}/>}
     </div>
   );
-};
+}
