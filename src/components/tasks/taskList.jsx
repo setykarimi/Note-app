@@ -21,7 +21,6 @@ export default function TaskList() {
         title: "Personal",
         color: "bg-red-500",
       },
-      subtask: 1,
     },
     {
       id: 4,
@@ -30,7 +29,6 @@ export default function TaskList() {
         title: "List 1",
         color: "bg-yellow-500",
       },
-      subtask: 3,
     },
     {
       id: 5,
@@ -57,30 +55,24 @@ export default function TaskList() {
 
 const Task = ({ task }) => {
   const showTaskDetails = (task) => {
-console.log(task)
-  }
+    console.log(task);
+  };
   return (
-    <div className="p-4 cursor-pointer text-gray-600 border-b border-b-gray-150 flex justify-between items-center" onClick={()=>showTaskDetails(task)}>
+    <div
+      className="p-4 cursor-pointer text-gray-600 border-b border-b-gray-150 flex justify-between items-center"
+      onClick={() => showTaskDetails(task)}
+    >
       <div>
         <div className="flex items-center gap-2">
           <input type="checkbox" className="w-4 h-4 border border-gray-100" />
           <span>{task.title}</span>
         </div>
-        {(task.date || task.label || task.subtask) && (
+        {(task.date || task.label) && (
           <div className="flex items-center flex-wrap gap-6 mt-2 ml-6">
             {task.date && (
               <div className="flex items-center text-gray-600 gap-1">
                 <BiSolidCalendarX size={14} />
                 <span className="text-xs  font-bold">{task.date}</span>
-              </div>
-            )}
-
-            {task.subtask && (
-              <div className="flex items-center text-gray-600 gap-2 text-xs font-bold">
-                <span className="bg-gray-200 font-bold w-7 text-center py-[1px] rounded">
-                  {task.subtask}
-                </span>
-                Subtasks
               </div>
             )}
 
@@ -96,7 +88,7 @@ console.log(task)
           </div>
         )}
       </div>
-      <HiChevronRight size={22}/>
+      <HiChevronRight size={22} />
     </div>
   );
 };
