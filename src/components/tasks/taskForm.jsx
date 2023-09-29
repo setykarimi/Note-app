@@ -3,31 +3,57 @@ import { ImCross } from "react-icons/im";
 
 export default function TaskForm({ setShowTaskForm, setTasks }) {
   const [formData, setFormData] = useState({
+    id: Math.round(100),
     title: "",
     desc: "",
+    completed: false,
     label: {
-        title: ""
+      title: "",
+      color: "",
     },
+    date: new Date().toISOString(),
   });
+
+  //   change input handler
   const changeInputHandler = (e) => {
     const { name, value } = e.target;
 
-    setFormData({ ...formData, [name]: value });
+    if (name === "label") {
+      setFormData({
+        ...formData,
+        label: {
+          title: value,
+          color: e.target[e.target.selectedIndex].getAttribute("data-color"),
+        },
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
   };
 
-  const closeFormHandler = () => {
-    setShowTaskForm(false);
-  };
-
+  //   Save task handler
   const saveTaskHandler = () => {
     setTasks((prv) => [...prv, formData]);
     setFormData({
+      id: Math.round(100),
       title: "",
       desc: "",
-      label: "",
+      completed: false,
+      label: {
+        title: "",
+        color: "",
+      },
+      date: new Date().toISOString(),
     });
   };
 
+  //   Close form handler
+  const closeFormHandler = () => {
+    setShowTaskForm(false);
+  };
   return (
     <div className="p-6 bg-gray-100 rounded-xl flex flex-col sidebar">
       <div className="flex items-center justify-between">
@@ -54,7 +80,7 @@ export default function TaskForm({ setShowTaskForm, setTasks }) {
 
       <div className="form-control flex items-center gap-2 mt-4">
         <label
-          htmlFor="label.title"
+          htmlFor="label"
           className="w-1/4 text-sm block text-gray-600 font-medium"
         >
           List
