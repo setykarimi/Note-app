@@ -62,7 +62,7 @@ export default function TaskList() {
   };
 
   return (
-    <div className="grid grid-cols-3 gap-6">
+    <div className="grid lg:grid-cols-3 gap-6">
       <div className={showTaskForm ? "col-span-2" : "col-span-3"}>
         <button
           className="border border-gray-150 px-6 py-4 text-gray-400 rounded-lg w-full text-left flex items-center gap-2"
