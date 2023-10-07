@@ -50,6 +50,11 @@ export default function TaskList() {
 
   const addNewNoteHandler = () => {
     setShowTaskForm(true);
+    const element = document.getElementById("sidebar");
+    if (element) {
+      // 👇 Will scroll smoothly to the top of the next section
+      element.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   const onComplete = (e) => {
