@@ -54,8 +54,9 @@ export default function TaskForm({ setShowTaskForm, setTasks }) {
   const closeFormHandler = () => {
     setShowTaskForm(false);
   };
+  
   return (
-    <div className="p-6 bg-gray-100 rounded-xl flex flex-col sidebar">
+    <div className="p-6 bg-gray-100 rounded-xl flex flex-col sidebar" id="sidebar">
       <div className="flex items-center justify-between">
         <h3 className="lg:text-2xl text-lg text-gray-600 font-bold">Task:</h3>
         <button onClick={closeFormHandler}>
@@ -78,7 +79,7 @@ export default function TaskForm({ setShowTaskForm, setTasks }) {
         rows={5}
       />
 
-      <div className="form-control flex items-center gap-2 mt-4">
+      <div className="form-control flex items-center gap-2 my-4">
         <label
           htmlFor="label"
           className="w-1/4 text-sm block text-gray-600 font-medium"
