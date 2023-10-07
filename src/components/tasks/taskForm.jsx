@@ -57,7 +57,7 @@ export default function TaskForm({ setShowTaskForm, setTasks }) {
   return (
     <div className="p-6 bg-gray-100 rounded-xl flex flex-col sidebar">
       <div className="flex items-center justify-between">
-        <h3 className="text-2xl text-gray-600 font-bold">Task:</h3>
+        <h3 className="lg:text-2xl text-lg text-gray-600 font-bold">Task:</h3>
         <button onClick={closeFormHandler}>
           <ImCross size={15} className="text-gray-500" />
         </button>
