@@ -11,43 +11,39 @@ export default function Sidebar({ expanded, setExpanded }) {
   return (
     <div
       className={`${
-        expanded ? "w-auto p-6" : "md:w-20 w-16 p-2"
-      } bg-gray-100 rounded-xl sidebar h-full flex flex-col relative transition-all	`}
+        expanded ? "w-auto p-6 bg-gray-100 " : "md:w-20 w-8 p-2"
+      } rounded-xl sidebar h-full flex flex-col relative transition-all	`}
     >
       <div
         className={`title flex ${
           expanded ? "justify-between" : "justify-center"
         } items-center`}
       >
-        <span
-          className={`font-bold block ${
-            expanded ? "text-2xl" : "text-sm mt-2 "
+        {expanded && (
+          <span
+            className={`font-bold block text-2xl "
           } text-gray-600 `}
-        >
-          Menu
-        </span>
+          >
+            Menu
+          </span>
+        )}
 
         <button
           onClick={() => setExpanded(!expanded)}
-          className={`transition-all ${
-            !expanded ? "absolute -right-2 top-8" : ""
-          }`}
+          className={`transition-all`}
         >
-          {expanded ? (
-            <BiMenu size={25} className="text-gray-600" />
-          ) : (
-            <span className="bg-cyan-500 rounded-full w-5 h-5 flex items-center justify-center ">
-              {" "}
-              <FaChevronRight size={11} className="text-white" />
-            </span>
-          )}
+          <BiMenu size={25} className="text-gray-600" />
         </button>
       </div>
-      {expanded && <SearchBar />}
-      <Tasks expanded={expanded} />
-      <Lists expanded={expanded} />
-      <Tags expanded={expanded} />
-      <OtherLinks expanded={expanded} />
+      {expanded && (
+        <>
+          <SearchBar />
+          <Tasks />
+          <Lists />
+          <Tags />
+          <OtherLinks />
+        </>
+      )}
     </div>
   );
 }
