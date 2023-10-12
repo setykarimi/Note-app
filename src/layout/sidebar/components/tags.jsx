@@ -21,7 +21,7 @@ export default function Tags() {
         {tags.map((tag) => (
           <Tag tag={tag} />
         ))}
-        <button className="flex gap-1 items-center bg-gray-200 text-sm rounded-md font-bold text-gray-600">
+        <button className="flex gap-1 items-center bg-gray-200 text-sm rounded-md font-bold text-gray-600 px-2">
           <IoMdAdd className="text-gray-500" size={15} />
           Add Tag
         </button>
